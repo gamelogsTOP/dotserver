@@ -328,3 +328,150 @@ jobs:
 - 方便的扩展和升级
 - 完整的监控和日志
 - 自动化的部署流程
+
+
+让我们优化日志配置，以更好地管理和查看服务日志：
+
+1. 首先修改 ecosystem.config.js：
+
+```javascript
+module.exports = {
+  apps: [{
+    name: 'dot-server',
+    script: './init.js',
+    instances: 'max',
+    exec_mode: 'cluster',
+    env: {
+      NODE_ENV: 'production',
+      PORT: 13258
+    },
+    // 日志配置
+    log_date_format: 'YYYY-MM-DD HH:mm:ss',
+    error_file: './logs/pm2/error.log',    // 错误日志路径
+    out_file: './logs/pm2/out.log',        // 输出日志路径
+    log_file: './logs/pm2/combined.log',   // 组合日志路径
+    merge_logs: true,                       // 合并集群日志
+    max_memory_restart: '1G'
+  }]
+};
+```
+
+2. 修改 Dockerfile：
+
+```dockerfile
+# 使用 Node.js LTS 版本作为基础镜像
+FROM node:18-alpine
+
+# 设置工作目录
+WORKDIR /app
+
+# 安装 PM2
+RUN npm install pm2 -g
+
+# 创建日志目录结构
+RUN mkdir -p /app/logs/pm2
+
+# 复制 package.json
+COPY package*.json ./
+
+# 安装依赖
+RUN npm install --production
+
+# 复制项目文件
+COPY . .
+
+# 暴露端口
+EXPOSE 13258
+
+# 使用 PM2 运行服务
+CMD ["pm2-runtime", "ecosystem.config.js"]
+```
+
+3. 修改 docker-compose.yml：
+
+```yaml
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: docker_dot_server
+    restart: always
+    ports:
+      - "13258:13258"
+    volumes:
+      - ./logs:/app/logs    # 挂载日志目录
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    # ...existing code...
+```
+
+4. 查看日志的方式：
+
+```bash
+# 1. 直接查看容器日志
+docker-compose logs -f app
+
+# 2. 查看具体日志文件
+# 错误日志
+tail -f logs/pm2/error.log
+
+# 输出日志
+tail -f logs/pm2/out.log
+
+# 组合日志
+tail -f logs/pm2/combined.log
+
+# 3. 进入容器查看日志
+docker exec -it docker_dot_server sh
+cd /app/logs/pm2
+cat error.log
+```
+
+5. 创建日志管理脚本：
+
+```bash
+#!/bin/bash
+
+case "$1" in
+  "error")
+    tail -f logs/pm2/error.log
+    ;;
+  "out")
+    tail -f logs/pm2/out.log
+    ;;
+  "all")
+    tail -f logs/pm2/combined.log
+    ;;
+  "docker")
+    docker-compose logs -f app
+    ;;
+  *)
+    echo "使用方法: ./scripts/logs.sh [error|out|all|docker]"
+    ;;
+esac
+```
+
+使用方法：
+```bash
+# 给脚本添加执行权限
+chmod +x scripts/logs.sh
+
+# 查看不同类型的日志
+./scripts/logs.sh error  # 查看错误日志
+./scripts/logs.sh out    # 查看输出日志
+./scripts/logs.sh all    # 查看所有日志
+./scripts/logs.sh docker # 查看容器日志
+```
+
+这样配置的优势：
+1. 日志分类清晰（错误、输出、组合）
+2. 支持日志轮转，防止占用过多磁盘空间
+3. 提供多种查看日志的方式
+4. 便于本地开发和生产环境调试
+5. 日志持久化到主机，容器重启不会丢失日志
+
+需要我详细解释某个部分吗？

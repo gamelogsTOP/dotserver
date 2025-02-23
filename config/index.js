@@ -6,13 +6,37 @@ const config = {
     env: process.env.NODE_ENV || 'development',
     port: process.env.PORT || 13258
   },
+  // 本地测试使用
+  // redis: {
+  //   host: process.env.REDIS_HOST || 'localhost',
+  //   port: process.env.REDIS_PORT || 6379,
+  //   retryStrategy: (times) => Math.min(5000, times * 100)
+  // },
+
+  // 云端部署使用
   redis: {
     host: process.env.REDIS_HOST || 'localhost',
-    port: process.env.REDIS_PORT || 6379,
-    retryStrategy: (times) => Math.min(5000, times * 100)
+    port: process.env.REDIS_PORT || 6380, // 改为与 docker-compose 一致
+    retryStrategy: (times) => Math.min(5000, times * 100),
+    sessionTTL: 7200,
+    syncInterval: 300000,
+    maxMemoryPolicy: {
+      policy: 'allkeys-lru',
+      maxmemory: '2gb'
+    }
   },
+  // 本地测试使用
+  // mongodb: {
+  //   uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/game_analytics',
+  //   options: {
+  //     serverSelectionTimeoutMS: 5000,
+  //     socketTimeoutMS: 45000,
+  //     maxPoolSize: 10
+  //   }
+  // },
+  // 云端部署使用
   mongodb: {
-    uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/game_analytics',
+    uri: process.env.MONGODB_URI || 'mongodb://admin:password@localhost:27018/game_analytics?authSource=admin',
     options: {
       serverSelectionTimeoutMS: 5000,
       socketTimeoutMS: 45000,

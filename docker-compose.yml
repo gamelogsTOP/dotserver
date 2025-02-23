@@ -1,0 +1,66 @@
+services:
+  mongodb:
+    image: mongo:8.0.4
+    container_name: mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: game_analytics
+    command: mongod --bind_ip 0.0.0.0 --port 27018
+    ports:
+      - "27018:27018"
+    volumes:
+      - mongodb_data:/data/db
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  redis:
+    image: redis:7-alpine
+    command: redis-server --port 6380 --bind 0.0.0.0 --maxmemory 2gb --maxmemory-policy allkeys-lru
+    container_name: redis
+    restart: always
+    ports:
+      - "6380:6380"
+    volumes:
+      - redis_data:/data
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dotserver
+    restart: always
+    ports:
+      - "13258:13258"
+    volumes:
+      - ./logs:/app/logs    # 挂载日志目录
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://admin:password@mongodb:27018/game_analytics?authSource=admin
+      - REDIS_HOST=redis
+      - REDIS_PORT=6380
+      - PORT=13258
+    depends_on:
+      - mongodb
+      - redis
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  mongodb_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  default:
+    driver: bridge

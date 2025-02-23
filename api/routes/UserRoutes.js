@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/UserController');
-const rateLimiter = require('../../middlewares/rateLimiter');
+const rateLimiter = require('../../middlewares/RateLimiter');
 const logger = require('../../utils/logger');
 
 // 路由级别的日志记录中间件

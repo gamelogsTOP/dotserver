@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const eventController = require('../controllers/EventController');
-const rateLimiter = require('../../middlewares/rateLimiter');
+const rateLimiter = require('../../middlewares/RateLimiter');
 const config = require('../../config');
 const logger = require('../../utils/logger');
 
