@@ -3,7 +3,7 @@ const logger = require('../utils/logger');
 /**
  * 全局错误处理中间件
  */
-function errorHandler(err, req, res, next) {
+function errorlogs(err, req, res, next) {
   // 记录错误日志
   logger.error('全局错误处理:', {
     error: err.message,
@@ -34,4 +34,4 @@ function errorHandler(err, req, res, next) {
   });
 }
 
-module.exports = errorHandler;
+module.exports = errorlogs;

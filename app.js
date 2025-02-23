@@ -3,7 +3,7 @@ const cors = require('cors');
 const config = require('./config');
 const logger = require('./utils/logger');
 const routes = require('./api/routes/index');
-const errorHandler = require('./middlewares/errorHandler');
+const errorlogs = require('./middlewares/errorlogs');
 const redisManager = require('./core/RedisManager');
 const mongoManager = require('./core/MongoManager');
 
@@ -114,7 +114,7 @@ class Application {
   }
 
   setupErrorHandling() {
-    this.app.use(errorHandler);
+    this.app.use(errorlogs);
   }
 }
 
