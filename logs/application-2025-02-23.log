@@ -1,0 +1,51 @@
+{"level":"info","message":"MongoDB connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.000"}
+{"level":"info","message":"MongoDB connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.000"}
+{"level":"info","message":"MongoDB connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.002"}
+{"level":"info","message":"Redis connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.005"}
+{"level":"info","message":"Redis connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.007"}
+{"level":"info","message":"Redis connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.008"}
+{"level":"info","message":"MongoDB connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.005"}
+{"level":"info","message":"MongoDB connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.011"}
+{"level":"info","message":"Server started on port 13258","metadata":{},"timestamp":"2025-02-23 14:37:58.012"}
+{"level":"info","message":"Redis connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.012"}
+{"level":"info","message":"Server started on port 13258","metadata":{},"timestamp":"2025-02-23 14:37:58.013"}
+{"level":"info","message":"Server started on port 13258","metadata":{},"timestamp":"2025-02-23 14:37:58.013"}
+{"level":"info","message":"Server started on port 13258","metadata":{},"timestamp":"2025-02-23 14:37:58.017"}
+{"level":"info","message":"Redis connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.019"}
+{"level":"info","message":"Server started on port 13258","metadata":{},"timestamp":"2025-02-23 14:37:58.023"}
+{"level":"info","message":"MongoDB connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.067"}
+{"level":"info","message":"Redis connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.072"}
+{"level":"info","message":"Server started on port 13258","metadata":{},"timestamp":"2025-02-23 14:37:58.079"}
+{"level":"info","message":"MongoDB connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.090"}
+{"level":"info","message":"Redis connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.094"}
+{"level":"info","message":"Server started on port 13258","metadata":{},"timestamp":"2025-02-23 14:37:58.100"}
+{"level":"info","message":"MongoDB connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.119"}
+{"level":"info","message":"Redis connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.124"}
+{"level":"info","message":"MongoDB connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.124"}
+{"level":"info","message":"Redis connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.128"}
+{"level":"info","message":"Server started on port 13258","metadata":{},"timestamp":"2025-02-23 14:37:58.130"}
+{"level":"info","message":"Server started on port 13258","metadata":{},"timestamp":"2025-02-23 14:37:58.133"}
+{"level":"info","message":"MongoDB connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.133"}
+{"level":"info","message":"Redis connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.138"}
+{"level":"info","message":"MongoDB connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.141"}
+{"level":"info","message":"Server started on port 13258","metadata":{},"timestamp":"2025-02-23 14:37:58.144"}
+{"level":"info","message":"Redis connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.146"}
+{"level":"info","message":"MongoDB connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.148"}
+{"level":"info","message":"Server started on port 13258","metadata":{},"timestamp":"2025-02-23 14:37:58.152"}
+{"level":"info","message":"Redis connected successfully","metadata":{},"timestamp":"2025-02-23 14:37:58.153"}
+{"level":"info","message":"Server started on port 13258","metadata":{},"timestamp":"2025-02-23 14:37:58.158"}
+{"level":"info","message":"API请求: GET /api/users/list","metadata":{"query":{}},"timestamp":"2025-02-23 14:40:08.621"}
+{"level":"info","message":"用户服务请求: GET /api/users/list","metadata":{},"timestamp":"2025-02-23 14:40:08.622"}
+{"level":"info","message":"HTTP","metadata":{"client":{"ip":"::ffff:192.168.1.157","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"},"req":{"method":"GET","path":"/list","query":{}},"res":{"duration":"18ms","status":200}},"timestamp":"2025-02-23 14:40:08.639"}
+{"level":"info","message":"API请求: GET /api/users/user_m7g0oedv_fzpm","metadata":{"query":{}},"timestamp":"2025-02-23 14:40:12.231"}
+{"level":"info","message":"用户服务请求: GET /api/users/user_m7g0oedv_fzpm","metadata":{},"timestamp":"2025-02-23 14:40:12.232"}
+{"level":"info","message":"获取用户信息成功","metadata":{"events_count":28,"user_id":"user_m7g0oedv_fzpm"},"timestamp":"2025-02-23 14:40:12.244"}
+{"level":"info","message":"HTTP","metadata":{"client":{"ip":"::ffff:192.168.1.157","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"},"req":{"method":"GET","path":"/user_m7g0oedv_fzpm","query":{}},"res":{"duration":"18ms","status":200}},"timestamp":"2025-02-23 14:40:12.249"}
+{"level":"info","message":"API请求: GET /api/users/user_m7fz1bc7_v4as","metadata":{"query":{}},"timestamp":"2025-02-23 14:40:15.737"}
+{"level":"info","message":"用户服务请求: GET /api/users/user_m7fz1bc7_v4as","metadata":{},"timestamp":"2025-02-23 14:40:15.739"}
+{"level":"info","message":"获取用户信息成功","metadata":{"events_count":16,"user_id":"user_m7fz1bc7_v4as"},"timestamp":"2025-02-23 14:40:15.752"}
+{"level":"info","message":"HTTP","metadata":{"client":{"ip":"::ffff:192.168.1.157","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"},"req":{"method":"GET","path":"/user_m7fz1bc7_v4as","query":{}},"res":{"duration":"17ms","status":200}},"timestamp":"2025-02-23 14:40:15.754"}
+{"level":"info","message":"API请求: GET /api/users/user_m7em7t84_mca6","metadata":{"query":{}},"timestamp":"2025-02-23 14:40:17.529"}
+{"level":"info","message":"用户服务请求: GET /api/users/user_m7em7t84_mca6","metadata":{},"timestamp":"2025-02-23 14:40:17.530"}
+{"level":"info","message":"获取用户信息成功","metadata":{"events_count":17,"user_id":"user_m7em7t84_mca6"},"timestamp":"2025-02-23 14:40:17.536"}
+{"level":"info","message":"HTTP","metadata":{"client":{"ip":"::ffff:192.168.1.157","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"},"req":{"method":"GET","path":"/user_m7em7t84_mca6","query":{}},"res":{"duration":"8ms","status":200}},"timestamp":"2025-02-23 14:40:17.537"}
